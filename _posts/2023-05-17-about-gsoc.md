@@ -64,6 +64,18 @@ I hopped to KDE neon and tried to write/read some issue everyday. Before the pro
 I had 3 or so MRs merged in Kalendar and in 10+ in total. 
 
 
-#### Proposal
+#### Proposal: Calendar Availability
+
+My proposal is based on on of KDE proposed ideas: ["Implement calendar availability"](https://community.kde.org/GSoC/2023/Ideas#Project:_Implement_calendar_availability)
+The link pretty much explains it. The project is extending the existing ical support to include
+elements in [RFC 7953](https://www.rfc-editor.org/rfc/rfc7953). This would allow users to better mention their
+free times. This 'availability' would be used by kalendar to cleverly suggest times during which meetings/events 
+can be scheduled.
+
+With all the prep done, I'm looking forward to starting on the task. There would be some challenges since I would 
+be juggling this along with my fulltime job but hey, that's part of the fun. 
+
+
+
 
 

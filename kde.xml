@@ -14,11 +14,11 @@
 
 &lt;p&gt;I’m Anant Verma, currently an R&amp;amp;D engineer at Tejas Networks Ltd, India. My proposal, “Implement Calendar Availability” was accepted for GSoC’23.&lt;/p&gt;
 
-&lt;p&gt;This is an introductory port to my project.&lt;/p&gt;
+&lt;p&gt;This is an introductory post to my project.&lt;/p&gt;
 
 &lt;h4 id=&quot;project-goals&quot;&gt;Project Goals&lt;/h4&gt;
 
-&lt;p&gt;My proposal is based on one of the ideas by KDE: &lt;a href=&quot;https://community.kde.org/GSoC/2023/Ideas#Project:_Implement_calendar_availability&quot;&gt;“Implement calendar availability”&lt;/a&gt;. The goal of the project is to extend the iCal support to include elements in &lt;a href=&quot;https://www.rfc-editor.org/rfc/rfc7953&quot;&gt;RFC 7953&lt;/a&gt;. This would entail adding new UI elements through which user will add/edit their availability. Along with this, KCalendarCore will be edited to support the new AVAILABILITY/VAVAILABILITY components (defined in RFC 7953).&lt;/p&gt;
+&lt;p&gt;My proposal is based on one of the ideas by KDE: &lt;a href=&quot;https://community.kde.org/GSoC/2023/Ideas#Project:_Implement_calendar_availability&quot;&gt;“Implement calendar availability”&lt;/a&gt;. The goal of the project is to extend the iCal support to include elements in &lt;a href=&quot;https://www.rfc-editor.org/rfc/rfc7953&quot;&gt;RFC 7953&lt;/a&gt;. This would entail adding new UI elements through which users will add/edit their availability. Along with this, KCalendarCore will be edited to support the new AVAILABILITY/VAVAILABILITY components (defined in RFC 7953).&lt;/p&gt;
 
 &lt;h4 id=&quot;motivation&quot;&gt;Motivation&lt;/h4&gt;
 

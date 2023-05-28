@@ -13,11 +13,11 @@ related_posts: false
 
 I'm Anant Verma, currently an R&D engineer at Tejas Networks Ltd, India. My proposal, "Implement Calendar Availability" was accepted for GSoC'23. 
 
-This is an introductory port to my project.
+This is an introductory post to my project.
 
 #### Project Goals
 
-My proposal is based on one of the ideas by KDE: [“Implement calendar availability”](https://community.kde.org/GSoC/2023/Ideas#Project:_Implement_calendar_availability). The goal of the project is to extend the iCal support to include elements in [RFC 7953](https://www.rfc-editor.org/rfc/rfc7953). This would entail adding new UI elements through which user will add/edit their availability. Along with this, KCalendarCore will be edited to support the new AVAILABILITY/VAVAILABILITY components (defined in RFC 7953).
+My proposal is based on one of the ideas by KDE: [“Implement calendar availability”](https://community.kde.org/GSoC/2023/Ideas#Project:_Implement_calendar_availability). The goal of the project is to extend the iCal support to include elements in [RFC 7953](https://www.rfc-editor.org/rfc/rfc7953). This would entail adding new UI elements through which users will add/edit their availability. Along with this, KCalendarCore will be edited to support the new AVAILABILITY/VAVAILABILITY components (defined in RFC 7953).
 
 #### Motivation
 

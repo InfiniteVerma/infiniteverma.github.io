@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Anant's Blog</title>
+    <description></description>
+    <link>https://infiniteverma.github.io</link>
+    
+		
+				
+				
+				  <item>
+					  <title>Gsoc Article 1</title>
+					  <description>&lt;p&gt;Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.&lt;/p&gt;
+</description>
+					  <pubDate>2023-05-17T00:00:00+00:00</pubDate>
+					  <link>https://infiniteverma.github.io/blog/2023/gsoc-article-1/</link>
+					  <guid isPermaLink="true">https://infiniteverma.github.io/blog/2023/gsoc-article-1/</guid>
+				  </item>
+				
+			
+		 
+    
+		
+			
+		 
+    
+  </channel>
+</rss>

@@ -1,10 +1,10 @@
 ---
 
 layout: post
-title: GSoC'23 with KDE
+title: GSoC'23 proposal accepted!
 date: 2023-05-17
-description: post abt GSoC 
-categories: code
+description:  
+categories: code 
 giscus_comments: true
 related_posts: true
 ---

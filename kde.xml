@@ -9,18 +9,35 @@
 				
 				
 				  <item>
-					  <title>Gsoc Article 1</title>
-					  <description>&lt;p&gt;Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.&lt;/p&gt;
+					  <title>GSoC&apos;23 Week 0 - Introduction</title>
+					  <description>&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
+
+&lt;p&gt;I’m Anant Verma, currently an R&amp;amp;D engineer at Tejas Networks Ltd, India. My proposal, “Implement Calendar Availability” was accepted for GSoC’23.&lt;/p&gt;
+
+&lt;p&gt;This is an introductory port to my project.&lt;/p&gt;
+
+&lt;h4 id=&quot;project-goals&quot;&gt;Project Goals&lt;/h4&gt;
+
+&lt;p&gt;My proposal is based on one of the ideas by KDE: &lt;a href=&quot;https://community.kde.org/GSoC/2023/Ideas#Project:_Implement_calendar_availability&quot;&gt;“Implement calendar availability”&lt;/a&gt;. The goal of the project is to extend the iCal support to include elements in &lt;a href=&quot;https://www.rfc-editor.org/rfc/rfc7953&quot;&gt;RFC 7953&lt;/a&gt;. This would entail adding new UI elements through which user will add/edit their availability. Along with this, KCalendarCore will be edited to support the new AVAILABILITY/VAVAILABILITY components (defined in RFC 7953).&lt;/p&gt;
+
+&lt;h4 id=&quot;motivation&quot;&gt;Motivation&lt;/h4&gt;
+
+&lt;p&gt;We often have regular periods of time where we are available or unavailable. For example, a college professor can easily specify what are their office hours and blocks of time where they are out of office. Ideally, these blocks of time should be used while making a free/busy lookup for that user.&lt;/p&gt;
+
+&lt;p&gt;In the background, the Kalendar application receives and sends information to calendar servers as per their defined protocols. Among the data exchanged, there is a free/busy field. However, this field is used to represent fixed time periods only and doesn’t provide a way to specify a repeating period of available/unavailable time. &lt;a href=&quot;https://www.rfc-editor.org/rfc/rfc7953&quot;&gt;RFC 7953&lt;/a&gt; is an improvement over this and would allow users to essentially publish their availability.&lt;/p&gt;
+
+&lt;p&gt;This new information will be added in AVAILABILITY and VAVAILABILITY components and would be sent to calendar servers while syncing. During a free/busy lookup, the server (if it supports RFC 7953) will consider above components during free/busy calculation.&lt;/p&gt;
+
+&lt;h4 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h4&gt;
+
+&lt;p&gt;I will be making more blog posts on my progress. Looking forward to working on this project!&lt;/p&gt;
+
 </description>
-					  <pubDate>2023-05-17T00:00:00+00:00</pubDate>
+					  <pubDate>2023-05-28T00:00:00+00:00</pubDate>
 					  <link>https://infiniteverma.github.io/blog/2023/gsoc-article-1/</link>
 					  <guid isPermaLink="true">https://infiniteverma.github.io/blog/2023/gsoc-article-1/</guid>
 				  </item>
 				
-			
-		 
-    
-		
 			
 		 
     

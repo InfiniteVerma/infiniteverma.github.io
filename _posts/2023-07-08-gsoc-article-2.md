@@ -4,8 +4,8 @@ layout: post
 title: GSoC'23 Week 6 - KCalendarCore work almost done!
 date: 2023-07-08
 description:  
-categories: 
-tag: 
+categories: kde 
+tag: kde
 giscus_comments: false
 related_posts: false	
 ---

@@ -6,6 +6,44 @@
     <link>https://infiniteverma.github.io</link>
     
 		
+				
+				
+				  <item>
+					  <title>GSoC&apos;23 Week 6 - KCalendarCore work almost done!</title>
+					  <description>&lt;p&gt;6 weeks in, here’s an update on my GSoC Project - &lt;a href=&quot;https://community.kde.org/GSoC/2023/Ideas#Project:_Implement_calendar_availability&quot;&gt;Implement calendar availability&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h4 id=&quot;kcalendarcore-changes&quot;&gt;KCalendarCore changes&lt;/h4&gt;
+
+&lt;p&gt;Over the past weeks, I’ve focused on to bring RFC7953 support to kcalendarcore codebase. This would help bring availability feature to the kalendar app (along with other calendar clients that use KCalendarCore). The progress was slower than expected due to some rewrites after improving the class design.&lt;/p&gt;
+
+&lt;p&gt;Here is the current class design:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/kde_available.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;In order to not break existing &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Incidence&lt;/code&gt; structure, we made a new base class for these two classes. Essentially, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AvailableBase&lt;/code&gt; is a copy of the IncidenceBase-Incidence structure. And as inheritance goes, the properties common to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Availability&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Available&lt;/code&gt; sits in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AvailableBase&lt;/code&gt; and the rest are in their derived classes.&lt;/p&gt;
+
+&lt;p&gt;There are tests added (which will grow) to quickly test the new changes I do. By running few parse tests (string-&amp;gt; ical), it’s verified that libical supports these new iCal components! So it’s just a matter of supporting all fields mentioned in RFC and our new kcalendarcore classes will work.&lt;/p&gt;
+
+&lt;p&gt;See my (painfully slow) work &lt;a href=&quot;https://invent.kde.org/frameworks/kcalendarcore/-/merge_requests/150&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h4 id=&quot;pending-work&quot;&gt;Pending Work&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;KCalendarCore: If you view my MR, you’ll see lots of TODOs sprinkled in it ;). Also &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;readAvailability&lt;/code&gt;/&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;writeAvailability&lt;/code&gt; methods need some more work.&lt;/li&gt;
+  &lt;li&gt;KCalendar: Once above is done, I’ll be moving on to adding the UI elements through which users will update their availability. The design would be similar to below:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/article_2_1.png&quot; alt=&quot;Image&quot; width=&quot;600&quot; height=&quot;400&quot; /&gt;&lt;/p&gt;
+
+&lt;h5 id=&quot;side-note&quot;&gt;Side Note&lt;/h5&gt;
+
+&lt;p&gt;Working on this project has been really fun so far. I’ve finally understood where there’s a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;d&lt;/code&gt;/&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;d_ptr&lt;/code&gt; pointer sprinkled everywhere in KDE codebases (called as the Pimpl Idiom). There are several other interesting designs that I admit I’ve gone into too many a rabbit hole.&lt;/p&gt;
+</description>
+					  <pubDate>2023-07-08T00:00:00+00:00</pubDate>
+					  <link>https://infiniteverma.github.io/blog/2023/gsoc-article-2/</link>
+					  <guid isPermaLink="true">https://infiniteverma.github.io/blog/2023/gsoc-article-2/</guid>
+				  </item>
+				
 			
 		 
     

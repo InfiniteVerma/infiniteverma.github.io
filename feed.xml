@@ -1,5 +1,71 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://infiniteverma.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://infiniteverma.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-07-28T19:31:48+00:00</updated><id>https://infiniteverma.github.io/feed.xml</id><title type="html">blank</title><subtitle>A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.
-</subtitle><entry><title type="html">GSoC’23 Week 6 - KCalendarCore work almost done!</title><link href="https://infiniteverma.github.io/blog/2023/gsoc-article-2/" rel="alternate" type="text/html" title="GSoC’23 Week 6 - KCalendarCore work almost done!" /><published>2023-07-08T00:00:00+00:00</published><updated>2023-07-08T00:00:00+00:00</updated><id>https://infiniteverma.github.io/blog/2023/gsoc-article-2</id><content type="html" xml:base="https://infiniteverma.github.io/blog/2023/gsoc-article-2/"><![CDATA[<p>6 weeks in, here’s an update on my GSoC Project - <a href="https://community.kde.org/GSoC/2023/Ideas#Project:_Implement_calendar_availability">Implement calendar availability</a>.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://infiniteverma.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://infiniteverma.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-08-28T13:05:06+00:00</updated><id>https://infiniteverma.github.io/feed.xml</id><title type="html">blank</title><subtitle>A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.
+</subtitle><entry><title type="html">GSoC’23 with KDE - Last week</title><link href="https://infiniteverma.github.io/blog/2023/gsoc-article-3/" rel="alternate" type="text/html" title="GSoC’23 with KDE - Last week" /><published>2023-08-28T00:00:00+00:00</published><updated>2023-08-28T00:00:00+00:00</updated><id>https://infiniteverma.github.io/blog/2023/gsoc-article-3</id><content type="html" xml:base="https://infiniteverma.github.io/blog/2023/gsoc-article-3/"><![CDATA[<p>12 weeks have passed and this is my concluding blog post on GSoC project: <a href="https://community.kde.org/GSoC/2023/Ideas#Project:_Implement_calendar_availability">Implement calendar availability</a>.</p>
+
+<p>Through the past 3 months, most of the pieces for the feature were implemented and published on MRs. There’s some loose ends to tie up and then we’ll be good to go :)</p>
+
+<h4 id="project-introduction">Project introduction</h4>
+
+<p>Our goal was to implement calendar availabilty. Through this, users should be able to update their availability via the Merkuro (formerly Kalendar) application. 
+Once updated, if someone wants to invite this person for an event, the free/busy lookup done would take into consideration the above new information.
+This would help suggest better intelligent times to schedule events.</p>
+
+<h4 id="design-in-short">Design in short</h4>
+
+<p>The task required supporting the new ical components <code class="language-plaintext highlighter-rouge">Availability</code> and <code class="language-plaintext highlighter-rouge">VAVAILABILITY</code> in the backend. 
+This includes adding/editing, parsing, serializing/de serializing them alongside the other already supported ical components. 
+The above code mostly sits in the <code class="language-plaintext highlighter-rouge">KCalendarCore</code> codebase.</p>
+
+<p>Then comes the middleware repositories through which a typical frontend calls add/edit/view availability. These include <code class="language-plaintext highlighter-rouge">Akonadi-Calendar</code> and <code class="language-plaintext highlighter-rouge">Akonadi</code>.</p>
+
+<p>Finally we have the frontend <code class="language-plaintext highlighter-rouge">Merkuro</code> through which users should be able to add/edit/view their availability. While doing aforementioned operations, our middleware/backend part of code shall be touched.</p>
+
+<p>To summarize we needed changes in:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">KCalendarCore</code></li>
+  <li><code class="language-plaintext highlighter-rouge">Akonadi-Calendar</code></li>
+  <li><code class="language-plaintext highlighter-rouge">Akonadi</code></li>
+  <li><code class="language-plaintext highlighter-rouge">Merkuro</code></li>
+</ul>
+
+<h4 id="progress">Progress</h4>
+
+<p>Backend and middleware part of the code is up and tested. <code class="language-plaintext highlighter-rouge">KCalendarCore</code> supports the new classes (class hierarchy shown in below photo. Along with new classes introduction, necessary tests were added to verify backend alone.</p>
+
+<p><img src="https://infiniteverma.github.io/assets/img/kde_available.png" alt="enter image description here" /></p>
+
+<p>Regarding middleware (<code class="language-plaintext highlighter-rouge">Akonadi</code> and <code class="language-plaintext highlighter-rouge">Akonadi-Calendar</code>) some functions needed updates to support the new class <code class="language-plaintext highlighter-rouge">KCalendarCore::Availability</code> and the newly introduced mimetype <code class="language-plaintext highlighter-rouge">application/x-vnd-akonadi-calendar.availability</code>. Few tests were added as well to test middleware changes.</p>
+
+<p>Then cames the frontend UI changes. A new UI page was added in <code class="language-plaintext highlighter-rouge">Merkuro</code> through which users can view/edit their availability. The first version would only support adding/editing one availability and not adding a higher priority entry (through supported by RFC). This would be added once this is finished and  merged :)</p>
+
+<p>The UI needs some cleanup but below is a screenshot of the current version:</p>
+
+<p>Open MRs:</p>
+<ul>
+  <li><a href="https://invent.kde.org/frameworks/kcalendarcore/-/merge_requests/150">KCalendarCore changes</a>.</li>
+  <li><a href="https://invent.kde.org/pim/akonadi/-/merge_requests/145">Akonadi changes</a>.</li>
+  <li><a href="https://invent.kde.org/pim/akonadi-calendar/-/merge_requests/71">Akonadi-calendar changes.</a></li>
+  <li><a href="https://invent.kde.org/pim/merkuro/-/merge_requests/389">Merkuro changes.</a></li>
+</ul>
+
+<h4 id="pending-tasks">Pending Tasks</h4>
+
+<p>Sadly, it could not be finished end to end during the duration of the soc. The remaining TODO items shall be done in the coming weeks.</p>
+
+<p>Pending tasks:</p>
+<ul>
+  <li>Fix the UI page code</li>
+  <li>Add more tests in middleware/frontend codebases</li>
+  <li>Test end to end</li>
+  <li>Add support for higher priority availability input</li>
+</ul>
+
+<h4 id="conclusion">Conclusion</h4>
+
+<p>GSoC’23 with KDE was a very rewarding experience for me. There was a wide range of things to learn while working on this project from things like QML/qt codeflow to grappling with design patterns like pimpl. Through this journey, I not only have become more comfortable with things C++ syntax but also the workings of compilation/linking and how to effectively debug them.</p>
+
+<p>Beyond the technical knowledge, I gained valuable lessons on what I could improve on, notably time management and communication skills. With better handle of my time, I may have managed to put a neater tie on the bow.</p>
+
+<p>In retrospect, I am delighted that I chose to apply for this program despite contending with occasional imposter syndrome. I look forward to continuing my contributions to KDE and other open source projects I find interesting.</p>]]></content><author><name></name></author><summary type="html"><![CDATA[12 weeks have passed and this is my concluding blog post on GSoC project: Implement calendar availability. Through the past 3 months, most of the pieces for the feature were implemented and published on MRs. There’s some loose ends to tie up and then we’ll be good to go :) Project introduction Our goal was to implement calendar availabilty. Through this, users should be able to update their availability via the Merkuro (formerly Kalendar) application. Once updated, if someone wants to invite this person for an event, the free/busy lookup done would take into consideration the above new information. This would help suggest better intelligent times to schedule events. Design in short The task required supporting the new ical components Availability and VAVAILABILITY in the backend. This includes adding/editing, parsing, serializing/de serializing them alongside the other already supported ical components. The above code mostly sits in the KCalendarCore codebase. Then comes the middleware repositories through which a typical frontend calls add/edit/view availability. These include Akonadi-Calendar and Akonadi. Finally we have the frontend Merkuro through which users should be able to add/edit/view their availability. While doing aforementioned operations, our middleware/backend part of code shall be touched. To summarize we needed changes in: KCalendarCore Akonadi-Calendar Akonadi Merkuro Progress Backend and middleware part of the code is up and tested. KCalendarCore supports the new classes (class hierarchy shown in below photo. Along with new classes introduction, necessary tests were added to verify backend alone. Regarding middleware (Akonadi and Akonadi-Calendar) some functions needed updates to support the new class KCalendarCore::Availability and the newly introduced mimetype application/x-vnd-akonadi-calendar.availability. Few tests were added as well to test middleware changes. Then cames the frontend UI changes. A new UI page was added in Merkuro through which users can view/edit their availability. The first version would only support adding/editing one availability and not adding a higher priority entry (through supported by RFC). This would be added once this is finished and merged :) The UI needs some cleanup but below is a screenshot of the current version: Open MRs: KCalendarCore changes. Akonadi changes. Akonadi-calendar changes. Merkuro changes. Pending Tasks Sadly, it could not be finished end to end during the duration of the soc. The remaining TODO items shall be done in the coming weeks. Pending tasks: Fix the UI page code Add more tests in middleware/frontend codebases Test end to end Add support for higher priority availability input Conclusion GSoC’23 with KDE was a very rewarding experience for me. There was a wide range of things to learn while working on this project from things like QML/qt codeflow to grappling with design patterns like pimpl. Through this journey, I not only have become more comfortable with things C++ syntax but also the workings of compilation/linking and how to effectively debug them. Beyond the technical knowledge, I gained valuable lessons on what I could improve on, notably time management and communication skills. With better handle of my time, I may have managed to put a neater tie on the bow. In retrospect, I am delighted that I chose to apply for this program despite contending with occasional imposter syndrome. I look forward to continuing my contributions to KDE and other open source projects I find interesting.]]></summary></entry><entry><title type="html">GSoC’23 Week 6 - KCalendarCore work almost done!</title><link href="https://infiniteverma.github.io/blog/2023/gsoc-article-2/" rel="alternate" type="text/html" title="GSoC’23 Week 6 - KCalendarCore work almost done!" /><published>2023-07-08T00:00:00+00:00</published><updated>2023-07-08T00:00:00+00:00</updated><id>https://infiniteverma.github.io/blog/2023/gsoc-article-2</id><content type="html" xml:base="https://infiniteverma.github.io/blog/2023/gsoc-article-2/"><![CDATA[<p>6 weeks in, here’s an update on my GSoC Project - <a href="https://community.kde.org/GSoC/2023/Ideas#Project:_Implement_calendar_availability">Implement calendar availability</a>.</p>
 
 <h4 id="kcalendarcore-changes">KCalendarCore changes</h4>
 

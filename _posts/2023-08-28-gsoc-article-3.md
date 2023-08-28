@@ -1,11 +1,11 @@
 ---
 
 layout: post
-title: GSoC'23 with KDE - Last week
+title: GSoC'23 Week 12 - Conclusion
 date: 2023-08-28
 description:  
-categories:
-tag:
+categories: kde
+tag: kde
 giscus_comments: false
 related_posts: false	
 ---

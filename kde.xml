@@ -6,6 +6,85 @@
     <link>https://infiniteverma.github.io</link>
     
 		
+				
+				
+				  <item>
+					  <title>GSoC&apos;23 Week 12 - Conclusion</title>
+					  <description>&lt;p&gt;12 weeks have passed and this is my concluding blog post on GSoC project: &lt;a href=&quot;https://community.kde.org/GSoC/2023/Ideas#Project:_Implement_calendar_availability&quot;&gt;Implement calendar availability&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Through the past 3 months, most of the pieces for the feature were implemented and published on MRs. There’s some loose ends to tie up and then we’ll be good to go :)&lt;/p&gt;
+
+&lt;h4 id=&quot;project-introduction&quot;&gt;Project introduction&lt;/h4&gt;
+
+&lt;p&gt;Our goal was to implement calendar availabilty. Through this, users should be able to update their availability via the Merkuro (formerly Kalendar) application. 
+Once updated, if someone wants to invite this person for an event, the free/busy lookup done would take into consideration the above new information.
+This would help suggest better intelligent times to schedule events.&lt;/p&gt;
+
+&lt;h4 id=&quot;design-in-short&quot;&gt;Design in short&lt;/h4&gt;
+
+&lt;p&gt;The task required supporting the new ical components &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Availability&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;VAVAILABILITY&lt;/code&gt; in the backend. 
+This includes adding/editing, parsing, serializing/de serializing them alongside the other already supported ical components. 
+The above code mostly sits in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;KCalendarCore&lt;/code&gt; codebase.&lt;/p&gt;
+
+&lt;p&gt;Then comes the middleware repositories through which a typical frontend calls add/edit/view availability. These include &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Akonadi-Calendar&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Akonadi&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Finally we have the frontend &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Merkuro&lt;/code&gt; through which users should be able to add/edit/view their availability. While doing aforementioned operations, our middleware/backend part of code shall be touched.&lt;/p&gt;
+
+&lt;p&gt;To summarize we needed changes in:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;KCalendarCore&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Akonadi-Calendar&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Akonadi&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Merkuro&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;progress&quot;&gt;Progress&lt;/h4&gt;
+
+&lt;p&gt;Backend and middleware part of the code is up and tested. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;KCalendarCore&lt;/code&gt; supports the new classes (class hierarchy shown in below photo. Along with new classes introduction, necessary tests were added to verify backend alone.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://infiniteverma.github.io/assets/img/kde_available.png&quot; alt=&quot;enter image description here&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Regarding middleware (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Akonadi&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Akonadi-Calendar&lt;/code&gt;) some functions needed updates to support the new class &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;KCalendarCore::Availability&lt;/code&gt; and the newly introduced mimetype &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;application/x-vnd-akonadi-calendar.availability&lt;/code&gt;. Few tests were added as well to test middleware changes.&lt;/p&gt;
+
+&lt;p&gt;Then cames the frontend UI changes. A new UI page was added in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Merkuro&lt;/code&gt; through which users can view/edit their availability. The first version would only support adding/editing one availability and not adding a higher priority entry (through supported by RFC). This would be added once this is finished and  merged :)&lt;/p&gt;
+
+&lt;p&gt;The UI needs some cleanup but below is a screenshot of the current version:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/kde_article_3_ss.png&quot; alt=&quot;image&quot; width=&quot;800&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Open MRs:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://invent.kde.org/frameworks/kcalendarcore/-/merge_requests/150&quot;&gt;KCalendarCore changes&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://invent.kde.org/pim/akonadi/-/merge_requests/145&quot;&gt;Akonadi changes&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://invent.kde.org/pim/akonadi-calendar/-/merge_requests/71&quot;&gt;Akonadi-calendar changes.&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://invent.kde.org/pim/merkuro/-/merge_requests/389&quot;&gt;Merkuro changes.&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;pending-tasks&quot;&gt;Pending Tasks&lt;/h4&gt;
+
+&lt;p&gt;Sadly, it could not be finished end to end during the duration of the soc. The remaining TODO items shall be done in the coming weeks.&lt;/p&gt;
+
+&lt;p&gt;Pending tasks:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Fix the UI page code&lt;/li&gt;
+  &lt;li&gt;Add more tests in middleware/frontend codebases&lt;/li&gt;
+  &lt;li&gt;Test end to end&lt;/li&gt;
+  &lt;li&gt;Add support for higher priority availability input&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h4&gt;
+
+&lt;p&gt;GSoC’23 with KDE was a very rewarding experience for me. There was a wide range of things to learn while working on this project from things like QML/qt codeflow to grappling with design patterns like pimpl. Through this journey, I not only have become more comfortable with things C++ syntax but also the workings of compilation/linking and how to effectively debug them.&lt;/p&gt;
+
+&lt;p&gt;Beyond the technical knowledge, I gained valuable lessons on what I could improve on, notably time management and communication skills. With better handle of my time, I may have managed to put a neater tie on the bow.&lt;/p&gt;
+
+&lt;p&gt;In retrospect, I am delighted that I chose to apply for this program despite contending with occasional imposter syndrome. I look forward to continuing my contributions to KDE and other open source projects I find interesting.&lt;/p&gt;
+</description>
+					  <pubDate>2023-08-28T00:00:00+00:00</pubDate>
+					  <link>https://infiniteverma.github.io/blog/2023/gsoc-article-3/</link>
+					  <guid isPermaLink="true">https://infiniteverma.github.io/blog/2023/gsoc-article-3/</guid>
+				  </item>
+				
 			
 		 
     

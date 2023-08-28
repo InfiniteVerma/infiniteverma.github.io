@@ -48,7 +48,7 @@ Then cames the frontend UI changes. A new UI page was added in `Merkuro` through
 
 The UI needs some cleanup but below is a screenshot of the current version:
 
-![image](/assets/img/kde_article_3_ss.png)
+<img src="/assets/img/kde_article_3_ss.png" alt="image" width="800">
 
 Open MRs:
 -   [KCalendarCore changes](https://invent.kde.org/frameworks/kcalendarcore/-/merge_requests/150).

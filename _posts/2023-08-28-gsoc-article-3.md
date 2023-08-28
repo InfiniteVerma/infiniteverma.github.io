@@ -4,8 +4,8 @@ layout: post
 title: GSoC'23 with KDE - Last week
 date: 2023-08-28
 description:  
-categories: kde 
-tag: kde
+categories:
+tag:
 giscus_comments: false
 related_posts: false	
 ---

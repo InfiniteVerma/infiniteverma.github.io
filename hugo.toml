@@ -1,6 +1,6 @@
 baseURL = 'https://example.org/'
 languageCode = 'en-us'
-title = 'My website'
+title = 'InfiniteVerma'
 theme = 'typo'
 
 [taxonomies]
@@ -21,8 +21,11 @@ hideHeader = false
 # Intro on main page, content is markdown
 homeIntroTitle = 'Hi!'
 homeIntroContent = """
-I am an Italian Software Engineer with a strong foundation in computer science and a passion for solving complex problems.
-I am interested in a range of topics, including algorithms, distributed systems, databases, and information retrieval.
+I an currently an R&D Engineer at Tejas Networks Ltd, Bangalore, India. I've completed my undergrad in CSE from Manipal Institute of Technology in Manipal, India.
+
+I've participated in GSoC'23 with the KDE Organization.
+
+My interests lie in low level systems programming topics like compilers/debugger/kernel development. I like to build hobby projects in my free time.
 """
 
 # Collection to display on home
@@ -40,15 +43,15 @@ breadcrumbs = true
 # Social icons
 [[params.social]]
 name = "linkedin"
-url = "https://www.linkedin.com/in/user/"
+url = "https://www.linkedin.com/in/anant-verma/"
 
-[[params.social]]
-name = "medium"
-url = "https://medium.com/@user"
+#[[params.social]]
+#name = "medium"
+#url = "https://medium.com/@user"
 
 [[params.social]]
 name = "github"
-url = "https://github.com/user"
+url = "https://github.com/infiniteverma/"
 
 # Main menu pages
 [[params.menu]]
